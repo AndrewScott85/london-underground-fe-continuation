@@ -1,16 +1,19 @@
 import StartDropdown from "./StartDropdown";
 import EndDropdown from "./EndDropdown";
 import SearchButton from "./SearchButton";
+import {useState} from "react";
 
-const Dropdowns = () => {
+const Form = ({sortedStations}) => {
+
+    const [selectedStartStation, setSelectedStartStation] = useState('');
+
     return (
-
         <form>
-            <StartDropdown />
-            <EndDropdown />
+            <StartDropdown sortedStations={sortedStations} setSelectedStartStation={setSelectedStartStation}/>
+            <EndDropdown sortedStations={sortedStations} selectedStartStation={selectedStartStation}/>
             <SearchButton />
         </form>
     );
 }
 
-export default Dropdowns;
+export default Form;
