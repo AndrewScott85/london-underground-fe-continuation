@@ -1,22 +1,10 @@
-import {useEffect} from "react";
-
-const EndDropdown = ({endStationList}) => {
-
-
-
-    // const minusStartSelection = sortedStations.filter((station) => {
-    //     return station !== selectedStartStation;
-    // });
-
-    // useEffect(() => {
-    //
-    // }, selectedStartStation)
+const EndDropdown = ({endStationList, handleEndSelect}) => {
 
     return (
-        <select name="stations" id="stations">
+        <select name="stations" id="end-stations" onChange={(event) => handleEndSelect(event.target.value)}>
             {endStationList.map((item, index) => {
                     return (
-                        <option key={index}>
+                        <option key={index} value={item}>
                             {item}
                         </option>
                     );
