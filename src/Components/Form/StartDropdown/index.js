@@ -1,17 +1,10 @@
 import {useEffect, useState} from "react";
 
-const StartDropdown = ({sortedStations, setSelectedStartStation}) => {
-
-    // const [selectedStartStation, setSelectedStartStation] = useState('');
-
-    const handleSelect = (selection) => {
-        // console.log(selection);
-        setSelectedStartStation(selection);
-    }
+const StartDropdown = ({startStationList, handleSelect}) => {
 
     return (
-        <select name="stations" id="stations" onChange={(e) => handleSelect(e.target.value)}>
-            {sortedStations.map((item, index) => {
+        <select name="stations" id="stations" onChange={(event) => handleSelect(event.target.value)}>
+            {startStationList.map((item, index) => {
                     return (
                         <option key={index} value={item}>
                             {item}
