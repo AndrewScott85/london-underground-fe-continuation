@@ -1,30 +1,19 @@
 import StartDropdown from "./StartDropdown";
 import EndDropdown from "./EndDropdown";
-import PlanJourneyButton from "./PlanJourneyButton";
-import {useEffect, useState} from "react";
+import PlanJourneyButton from "./SearchButton";
+import {useState} from "react";
 
-
-const Form = ({sortedStations}) => {
+const Form = ({sortedStations, setJourneyOptions}) => {
 
     const [selectedStartStation, setSelectedStartStation] = useState('');
     const [selectedEndStation, setSelectedEndStation] = useState('');
-    const [endStationList, setEndStationList] = useState([]);
-    const [startStationList, setStartStationList] = useState([]);
 
     const handleStartSelect = (selection) => {
         setSelectedStartStation(selection);
-        const filteredEndList = sortedStations.filter((item) => {
-            return item !== selection;
-        });
-        setEndStationList(filteredEndList);
     }
 
     const handleEndSelect = (selection) => {
         setSelectedEndStation(selection);
-        const filteredStartList = sortedStations.filter((item) => {
-            return item !== selection;
-        });
-        setStartStationList(filteredStartList);
     }
 
     const handleSubmit = (event) => {
@@ -41,19 +30,17 @@ const Form = ({sortedStations}) => {
         console.log(JSON.stringify({selectedStartStation, selectedEndStation}))
 
         fetch(url, requestOptions)
-            .then(response => console.log('Submitted successfully'))
+            .then(response => response.json())
+            .then(journeyData => {
+                setJourneyOptions(journeyData);
+            })
             .catch(error => console.log('Form submit error', error))
     }
 
-    useEffect(() => {
-        setStartStationList(sortedStations);
-        setEndStationList(sortedStations);
-    }, [])
-
     return (
-        <form onSubmit={handleSubmit} className="journey-form">
-            <StartDropdown startStationList={startStationList} handleStartSelect={handleStartSelect} />
-            <EndDropdown endStationList={endStationList} handleEndSelect={handleEndSelect} />
+        <form onSubmit={handleSubmit}>
+            <StartDropdown sortedStations={sortedStations} handleStartSelect={handleStartSelect} />
+            <EndDropdown sortedStations={sortedStations} handleEndSelect={handleEndSelect} />
             <PlanJourneyButton />
         </form>
     );

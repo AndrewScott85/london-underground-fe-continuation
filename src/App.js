@@ -2,13 +2,15 @@ import './App.css';
 import Form from "./Components/Form";
 import Navbar from "./Components/Navbar";
 import {useEffect, useState} from "react";
+import Journeys from "./Components/Journeys";
 
 function App() {
 
-    const [tubeItems, setTubeItems] = useState([]);
+    const [sortedStations, setSortedStations] = useState([]);
+    const [journeyOptions, setJourneyOptions] = useState([]);
 
     const fetchData = async () => {
-        const response = await fetch('https://dev.io-academy.uk/resources/stations/');
+        const response = await fetch('http://localhost:3001/stations');
 
         if (!response.ok) {
             throw new Error('Data could not be fetched.');
@@ -18,9 +20,9 @@ function App() {
     }
 
     useEffect(() => {
-            fetchData()         // when the data from fetchData() comes back, put it into countryItems.
+            fetchData()
                 .then((tubeData) => {
-                    setTubeItems(tubeData);
+                    setSortedStations(tubeData);
                 })
                 .catch((e) => {
                     console.log(e.message);
@@ -28,25 +30,15 @@ function App() {
         }, []
     );
 
-    // The below will be provided as a route on the backend
-
-    const lineArrays = Object.values(tubeItems);
-
-    const stations = lineArrays.flatMap(station => station);
-
-    const stationsArray = stations.map((index) => {
-        return index.name;
-    });
-
-    const stationsUnique = new Set(stationsArray);
-
-    const sortedStations = Array.from(stationsUnique).sort();
-
+    useEffect(() => {
+        console.log(journeyOptions);
+    },[journeyOptions])
 
     return (
         <>
         <Navbar />
-        <Form sortedStations={sortedStations}/>
+        <Form sortedStations={sortedStations} setJourneyOptions={setJourneyOptions} />
+        <Journeys journeyOptions={journeyOptions} />
         </>
     );
 }
