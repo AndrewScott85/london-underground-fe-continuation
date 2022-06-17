@@ -1,8 +1,8 @@
-const EndDropdown = ({endStationList, handleEndSelect}) => {
+const EndDropdown = ({sortedStations, handleEndSelect}) => {
 
     return (
         <select name="stations" id="end-stations" onChange={(event) => handleEndSelect(event.target.value)}>
-            {endStationList.map((item, index) => {
+            {sortedStations.map((item, index) => {
                     return (
                         <option key={index} value={item}>
                             {item}
