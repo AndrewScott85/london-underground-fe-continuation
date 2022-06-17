@@ -6,6 +6,8 @@ import {useEffect, useState} from "react";
 function App() {
 
     const [tubeItems, setTubeItems] = useState([]);
+    const [journeyOptions, setJourneyOptions] = useState([]);
+
 
     const fetchData = async () => {
         const response = await fetch('https://dev.io-academy.uk/resources/stations/');
@@ -28,6 +30,10 @@ function App() {
         }, []
     );
 
+    useEffect(() => {
+        console.log(journeyOptions);
+    },[journeyOptions])
+
     // The below will be provided as a route on the backend
 
     const lineArrays = Object.values(tubeItems);
@@ -47,7 +53,7 @@ function App() {
     return (
         <>
         <Navbar />
-        <Form sortedStations={sortedStations}/>
+        <Form sortedStations={sortedStations} setJourneyOptions={setJourneyOptions}/>
         </>
     );
 }

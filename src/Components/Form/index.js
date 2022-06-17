@@ -4,7 +4,7 @@ import PlanJourneyButton from "./SearchButton";
 import {useEffect, useState} from "react";
 
 
-const Form = ({sortedStations}) => {
+const Form = ({sortedStations, setJourneyOptions}) => {
 
     const [selectedStartStation, setSelectedStartStation] = useState('');
     const [selectedEndStation, setSelectedEndStation] = useState('');
@@ -40,10 +40,14 @@ const Form = ({sortedStations}) => {
 
         fetch(url, requestOptions)
             .then(response => response.json())
-            .then(journeyData =>
-                console.log(journeyData))
+            .then(journeyData => {
+                setJourneyOptions(journeyData);
+                // console.log(journeyData);
+            })
             .catch(error => console.log('Form submit error', error))
     }
+
+
 
     useEffect(() => {
         setStartStationList(sortedStations);
