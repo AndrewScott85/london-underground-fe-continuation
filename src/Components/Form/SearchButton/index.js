@@ -1,9 +1,9 @@
-const SearchButton = () => {
+const PlanJourneyButton = () => {
     return (
-        <button>
-            Search
+        <button type="submit">
+            Plan Journey
         </button>
     );
 }
 
-export default SearchButton;
+export default PlanJourneyButton;
