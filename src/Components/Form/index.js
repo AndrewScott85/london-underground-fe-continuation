@@ -39,7 +39,9 @@ const Form = ({sortedStations}) => {
         };
 
         fetch(url, requestOptions)
-            .then(response => console.log('Submitted successfully'))
+            .then(response => response.json())
+            .then(journeyData =>
+                console.log(journeyData))
             .catch(error => console.log('Form submit error', error))
     }
 
@@ -50,8 +52,8 @@ const Form = ({sortedStations}) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <StartDropdown startStationList={startStationList} handleStartSelect={handleStartSelect}/>
-            <EndDropdown endStationList={endStationList} handleEndSelect={handleEndSelect}/>
+            <StartDropdown startStationList={startStationList} handleStartSelect={handleStartSelect} />
+            <EndDropdown endStationList={endStationList} handleEndSelect={handleEndSelect} />
             <PlanJourneyButton />
         </form>
     );
