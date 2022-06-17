@@ -1,6 +1,6 @@
 import StartDropdown from "./StartDropdown";
 import EndDropdown from "./EndDropdown";
-import PlanJourneyButton from "./SearchButton";
+import PlanJourneyButton from "./PlanJourneyButton";
 import {useEffect, useState} from "react";
 
 
@@ -38,6 +38,8 @@ const Form = ({sortedStations}) => {
             body: JSON.stringify({selectedStartStation, selectedEndStation})
         };
 
+        console.log(JSON.stringify({selectedStartStation, selectedEndStation}))
+
         fetch(url, requestOptions)
             .then(response => console.log('Submitted successfully'))
             .catch(error => console.log('Form submit error', error))
@@ -49,9 +51,9 @@ const Form = ({sortedStations}) => {
     }, [])
 
     return (
-        <form onSubmit={handleSubmit}>
-            <StartDropdown startStationList={startStationList} handleStartSelect={handleStartSelect}/>
-            <EndDropdown endStationList={endStationList} handleEndSelect={handleEndSelect}/>
+        <form onSubmit={handleSubmit} className="journey-form">
+            <StartDropdown startStationList={startStationList} handleStartSelect={handleStartSelect} />
+            <EndDropdown endStationList={endStationList} handleEndSelect={handleEndSelect} />
             <PlanJourneyButton />
         </form>
     );

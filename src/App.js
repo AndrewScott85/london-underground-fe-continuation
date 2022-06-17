@@ -32,8 +32,6 @@ function App() {
 
     const lineArrays = Object.values(tubeItems);
 
-    console.table(tubeItems);
-
     const stations = lineArrays.flatMap(station => station);
 
     const stationsArray = stations.map((index) => {
