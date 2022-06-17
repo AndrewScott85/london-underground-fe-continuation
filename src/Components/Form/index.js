@@ -27,6 +27,8 @@ const Form = ({sortedStations, setJourneyOptions}) => {
             body: JSON.stringify({selectedStartStation, selectedEndStation})
         };
 
+        console.log(JSON.stringify({selectedStartStation, selectedEndStation}))
+
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(journeyData => {

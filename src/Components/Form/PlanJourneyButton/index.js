@@ -1,6 +1,6 @@
 const PlanJourneyButton = () => {
     return (
-        <button type="submit">
+        <button type="submit" className="plan-journey-button">
             Plan Journey
         </button>
     );
