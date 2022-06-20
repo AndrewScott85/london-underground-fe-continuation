@@ -7,7 +7,7 @@ import Journeys from "./Components/Journeys";
 function App() {
 
     const [sortedStations, setSortedStations] = useState([]);
-    const [journeyOptions, setJourneyOptions] = useState([]);
+    const [journeyOptions, setJourneyOptions] = useState(['']);
 
     const fetchData = async () => {
         const response = await fetch('http://localhost:3001/stations');

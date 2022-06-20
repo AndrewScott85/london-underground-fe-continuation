@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg: #73D2BA;
-  --light: #8CF6EB;
+  --bg: #73d2ba;
+  --light: #8cf6eb;
   --text: #335858;
 }
 
@@ -47,7 +47,7 @@ select {
   flex-direction: column;
   margin: 1rem auto;
   padding: 1.5rem;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   max-width: 20rem;
   border-radius: 0.5rem;
   box-shadow: 0 1px 5px #00000025;
@@ -67,6 +67,38 @@ select {
 }
 
 .plan-journey-button:hover {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   cursor: pointer;
+}
+
+.plan-journey-button:disabled {
+  background-color: #ececec;
+  cursor: default;
+  border: solid 2px #e1e1e1;
+  color: #d3d3d3;
+}
+
+.journey-box {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  max-width: 20rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 5px #00000025;
+}
+
+.journey-box h2 {
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+}
+
+.journey-box p {
+  text-align: center;
+}
+
+table th {
+  text-align: start;
 }

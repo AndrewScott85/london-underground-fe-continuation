@@ -18,7 +18,6 @@ const Form = ({sortedStations, setJourneyOptions}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`A: ${selectedStartStation}, B: ${selectedEndStation}`);
 
         const url = 'http://localhost:3001/journeys'
         const requestOptions = {
@@ -26,8 +25,6 @@ const Form = ({sortedStations, setJourneyOptions}) => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({selectedStartStation, selectedEndStation})
         };
-
-        console.log(JSON.stringify({selectedStartStation, selectedEndStation}))
 
         fetch(url, requestOptions)
             .then(response => response.json())
@@ -41,7 +38,7 @@ const Form = ({sortedStations, setJourneyOptions}) => {
         <form onSubmit={handleSubmit} className="journey-form">
             <StartDropdown sortedStations={sortedStations} handleStartSelect={handleStartSelect} />
             <EndDropdown sortedStations={sortedStations} handleEndSelect={handleEndSelect} />
-            <PlanJourneyButton />
+            <PlanJourneyButton selectedStartStation={selectedStartStation} selectedEndStation={selectedEndStation} />
         </form>
     );
 }
