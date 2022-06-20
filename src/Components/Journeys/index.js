@@ -8,11 +8,13 @@ const Journeys = ({journeyOptions}) => {
         return cleanData;
     }
 
-    const cleanedJourneyData = cleanUp(journeyOptions);
+    let journeyData = [];
 
+    journeyOptions.length === 0 ? journeyData.push('No journeys found. Bummer.') : journeyData = cleanUp(journeyOptions);
+    
     return (
         <div>
-            {cleanedJourneyData.map((item, index) => {
+            {journeyData.map((item, index) => {
                 return (
                     <p key={index}>{item}</p>
                 );
