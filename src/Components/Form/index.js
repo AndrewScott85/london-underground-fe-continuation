@@ -26,8 +26,6 @@ const Form = ({sortedStations, setJourneyOptions}) => {
             body: JSON.stringify({selectedStartStation, selectedEndStation})
         };
 
-        console.log(JSON.stringify({selectedStartStation, selectedEndStation}))
-
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(journeyData => {
@@ -40,7 +38,7 @@ const Form = ({sortedStations, setJourneyOptions}) => {
         <form onSubmit={handleSubmit} className="journey-form">
             <StartDropdown sortedStations={sortedStations} handleStartSelect={handleStartSelect} />
             <EndDropdown sortedStations={sortedStations} handleEndSelect={handleEndSelect} />
-            <PlanJourneyButton />
+            <PlanJourneyButton selectedStartStation={selectedStartStation} selectedEndStation={selectedEndStation}/>
         </form>
     );
 }

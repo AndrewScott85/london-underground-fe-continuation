@@ -70,3 +70,10 @@ select {
   background-color: #FFFFFF;
   cursor: pointer;
 }
+
+.plan-journey-button:disabled {
+  background-color: #ececec;
+  cursor: default;
+  border: solid 2px #e1e1e1;
+  color: #d3d3d3;
+}
