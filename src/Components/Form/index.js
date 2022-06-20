@@ -38,7 +38,7 @@ const Form = ({sortedStations, setJourneyOptions}) => {
         <form onSubmit={handleSubmit} className="journey-form">
             <StartDropdown sortedStations={sortedStations} handleStartSelect={handleStartSelect} />
             <EndDropdown sortedStations={sortedStations} handleEndSelect={handleEndSelect} />
-            <PlanJourneyButton selectedStartStation={selectedStartStation} selectedEndStation={selectedEndStation}/>
+            <PlanJourneyButton selectedStartStation={selectedStartStation} selectedEndStation={selectedEndStation} />
         </form>
     );
 }
