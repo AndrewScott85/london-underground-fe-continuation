@@ -5,7 +5,8 @@ const AvailableJourneys = ({journeyOptions}) => {
         <table>
             <thead>
             <tr>
-                <th>Line</th>
+                <th style={{width: "50%"}}>Line</th>
+                <th>Journey Time</th>
                 <th>Stops</th>
             </tr>
             </thead>
@@ -14,6 +15,7 @@ const AvailableJourneys = ({journeyOptions}) => {
                     <tbody key={index}>
                     <tr>
                         <td>{item.line}</td>
+                        <td>69m</td>
                         <td>{item.stops}</td>
                     </tr>
                     </tbody>

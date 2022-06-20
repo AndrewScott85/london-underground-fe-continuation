@@ -48,7 +48,7 @@ select {
   margin: 1rem auto;
   padding: 1.5rem;
   background-color: #ffffff;
-  max-width: 20rem;
+  max-width: 25rem;
   border-radius: 0.5rem;
   box-shadow: 0 1px 5px #00000025;
 }
@@ -84,7 +84,7 @@ select {
   margin: 1rem auto;
   padding: 1.5rem;
   background-color: #ffffff;
-  max-width: 20rem;
+  max-width: 25rem;
   border-radius: 0.5rem;
   box-shadow: 0 1px 5px #00000025;
 }
@@ -101,4 +101,9 @@ select {
 
 table th {
   text-align: start;
+  padding-bottom: 1rem;
+}
+
+table td {
+  padding: 0.5rem 0;
 }
