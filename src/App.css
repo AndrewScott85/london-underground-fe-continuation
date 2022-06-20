@@ -77,3 +77,28 @@ select {
   border: solid 2px #e1e1e1;
   color: #d3d3d3;
 }
+
+.journey-box {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  background-color: #FFFFFF;
+  max-width: 20rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 5px #00000025;
+}
+
+.journey-box h2 {
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+}
+
+.journey-box p {
+  text-align: center;
+}
+
+table th {
+  text-align: start;
+}
