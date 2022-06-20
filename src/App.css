@@ -107,3 +107,9 @@ table th {
 table td {
   padding: 0.5rem 0;
 }
+
+.expand-collapse {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
