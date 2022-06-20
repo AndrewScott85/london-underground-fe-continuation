@@ -18,7 +18,6 @@ const Form = ({sortedStations, setJourneyOptions}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`A: ${selectedStartStation}, B: ${selectedEndStation}`);
 
         const url = 'http://localhost:3001/journeys'
         const requestOptions = {
