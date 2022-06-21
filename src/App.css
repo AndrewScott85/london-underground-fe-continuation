@@ -99,6 +99,27 @@ select {
   text-align: center;
 }
 
+.journey-table {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+}
+
+.journey-table h3 {
+  font-size: 1rem;
+}
+
+.journey-table p {
+  text-align: start;
+  vertical-align: middle;
+}
+
+.station-list-table {
+  grid-column: 1 / 4;
+  border: 3px solid var(--light);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
 table th {
   text-align: start;
   padding-bottom: 1rem;
@@ -109,7 +130,16 @@ table td {
 }
 
 .expand-collapse {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
+  vertical-align: middle;
+}
+
+.journey-table h4 {
+  margin: 1rem 0;
+  font-weight: 500;
+  transition: 0.2s;
+  color: var(--text);
+}
+
+.journey-table h4:hover {
+  cursor: pointer
 }

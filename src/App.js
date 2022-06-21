@@ -8,6 +8,7 @@ function App() {
 
     const [sortedStations, setSortedStations] = useState([]);
     const [journeyOptions, setJourneyOptions] = useState(['']);
+    const [displayJourneyOptions, setDisplayJourneyOptions] = useState(false);
 
     const fetchData = async () => {
         const response = await fetch('http://localhost:3001/stations');
@@ -37,8 +38,11 @@ function App() {
     return (
         <>
         <Navbar />
-        <Form sortedStations={sortedStations} setJourneyOptions={setJourneyOptions} />
-        <Journeys journeyOptions={journeyOptions} />
+        <Form sortedStations={sortedStations}
+              setJourneyOptions={setJourneyOptions}
+              setDisplayJourneyOptions={setDisplayJourneyOptions}
+        />
+              {displayJourneyOptions && <Journeys journeyOptions={journeyOptions}/>}
         </>
     );
 }
