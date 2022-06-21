@@ -152,6 +152,6 @@ table td {
   color: var(--text);
 }
 
-.journey-table h4:hover {
+.line-img-container:hover {
   cursor: pointer
 }
