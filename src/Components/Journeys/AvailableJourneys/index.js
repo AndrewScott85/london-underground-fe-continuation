@@ -1,7 +1,6 @@
 import StationList from "../StationList";
 import React from 'react';
 
-
 const AvailableJourneys = ({journeyOptions}) => {
 
     const secondsToHms = (time) => {
@@ -27,7 +26,7 @@ const AvailableJourneys = ({journeyOptions}) => {
             {journeyOptions.map((item, index) => {
                 return (
                     <React.Fragment key={index}>
-                        <StationList item={item} secondsToHms={secondsToHms} index={index}/>
+                        <StationList item={item} secondsToHms={secondsToHms} index={index} />
                     </React.Fragment>
                 );
             })}

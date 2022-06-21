@@ -42,7 +42,7 @@ function App() {
               setJourneyOptions={setJourneyOptions}
               setDisplayJourneyOptions={setDisplayJourneyOptions}
         />
-              {displayJourneyOptions && <Journeys journeyOptions={journeyOptions}/>}
+              {displayJourneyOptions && <Journeys journeyOptions={journeyOptions} />}
         </>
     );
 }
