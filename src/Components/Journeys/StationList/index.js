@@ -1,6 +1,17 @@
 import React, {useState} from "react";
 import {IconContext} from "react-icons";
 import {MdExpandLess, MdExpandMore} from "react-icons/md";
+import Bakerloo from './Images/bakerloo.svg';
+import Central from './Images/central.svg';
+import District from './Images/district.svg';
+import HSmithCity from './Images/hammersmith-city.svg';
+import Jubilee from './Images/jubilee.svg';
+import Metropolitan from './Images/metropolitan.svg';
+import Northern from './Images/northern.svg';
+import Piccadilly from './Images/picadilly.svg';
+import Victoria from './Images/victoria.svg';
+import WLooCity from './Images/waterloo-city.svg';
+
 
 const StationList = ({item, secondsToHms}) => {
 
@@ -14,9 +25,25 @@ const StationList = ({item, secondsToHms}) => {
                             <MdExpandLess className="expand-collapse" size="30px" onClick={() => setVisible(!visible)} />
                        </IconContext.Provider>
 
+    const displaySvg = (line) => {
+        switch (line) {
+            case 'Bakerloo': return Bakerloo;
+            case 'Central': return Central;
+            case 'District': return District;
+            case 'Hammersmith and Circle': return HSmithCity;
+            case 'Jubilee': return Jubilee;
+            case 'Metropolitan': return Metropolitan;
+            case 'Northern': return Northern;
+            case 'Piccadilly': return Piccadilly;
+            case 'Victoria': return Victoria;
+            case 'Waterloo': return WLooCity;
+            default: return '';
+        }
+    }
+
     return (
         <>
-        <h4 onClick={() => setVisible(!visible)}>{item.line}{visible ? expandIcon : collapseIcon}</h4>
+        <div className="line-img-container"><img src={displaySvg(item.line)} onClick={() => setVisible(!visible)} alt="" />{visible ? expandIcon : collapseIcon}</div>
         <p>{secondsToHms(item.time)}</p>
         <p>{item.stops}</p>
             {visible && <table className="station-list-table" cellSpacing="0" cellPadding="0">

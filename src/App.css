@@ -101,7 +101,7 @@ select {
 
 .journey-table {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
 }
 
 .journey-table h3 {
@@ -110,7 +110,12 @@ select {
 
 .journey-table p {
   text-align: start;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+}
+
+.journey-table img {
+  width: 3.5rem;
 }
 
 .station-list-table {
@@ -118,6 +123,13 @@ select {
   border: 3px solid var(--light);
   border-radius: 0.5rem;
   padding: 0.5rem;
+}
+
+.line-img-container {
+  display: flex;
+  column-gap: 1rem;
+  align-items: center;
+  margin: 0.5rem 0;
 }
 
 table th {
