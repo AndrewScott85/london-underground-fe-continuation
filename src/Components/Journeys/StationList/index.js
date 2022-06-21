@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {IconContext} from "react-icons";
 import {MdExpandLess, MdExpandMore} from "react-icons/md";
+import secondsToHms from '../../../imports/library.js';
 import Bakerloo from './Images/bakerloo.svg';
 import Central from './Images/central.svg';
 import District from './Images/district.svg';
@@ -12,8 +13,7 @@ import Piccadilly from './Images/picadilly.svg';
 import Victoria from './Images/victoria.svg';
 import WLooCity from './Images/waterloo-city.svg';
 
-
-const StationList = ({item, secondsToHms}) => {
+const StationList = ({item}) => {
 
     const [visible, setVisible] = useState(false);
 
@@ -36,7 +36,7 @@ const StationList = ({item, secondsToHms}) => {
             case 'Northern': return Northern;
             case 'Piccadilly': return Piccadilly;
             case 'Victoria': return Victoria;
-            case 'Waterloo': return WLooCity;
+            case 'Waterloo and City': return WLooCity;
             default: return '';
         }
     }
