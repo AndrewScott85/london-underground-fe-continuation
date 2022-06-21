@@ -48,7 +48,7 @@ select {
   margin: 1rem auto;
   padding: 1.5rem;
   background-color: #ffffff;
-  max-width: 20rem;
+  max-width: 25rem;
   border-radius: 0.5rem;
   box-shadow: 0 1px 5px #00000025;
 }
@@ -84,7 +84,7 @@ select {
   margin: 1rem auto;
   padding: 1.5rem;
   background-color: #ffffff;
-  max-width: 20rem;
+  max-width: 25rem;
   border-radius: 0.5rem;
   box-shadow: 0 1px 5px #00000025;
 }
@@ -99,6 +99,47 @@ select {
   text-align: center;
 }
 
+.journey-table {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+}
+
+.journey-table h3 {
+  font-size: 1rem;
+}
+
+.journey-table p {
+  text-align: start;
+  vertical-align: middle;
+}
+
+.station-list-table {
+  grid-column: 1 / 4;
+  border: 3px solid var(--light);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
 table th {
   text-align: start;
+  padding-bottom: 1rem;
+}
+
+table td {
+  padding: 0.5rem 0;
+}
+
+.expand-collapse {
+  vertical-align: middle;
+}
+
+.journey-table h4 {
+  margin: 1rem 0;
+  font-weight: 500;
+  transition: 0.2s;
+  color: var(--text);
+}
+
+.journey-table h4:hover {
+  cursor: pointer
 }

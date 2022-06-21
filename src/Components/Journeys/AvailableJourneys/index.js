@@ -1,25 +1,36 @@
+import StationList from "../StationList";
+import React from 'react';
+
 const AvailableJourneys = ({journeyOptions}) => {
+
+    const secondsToHms = (time) => {
+        if (!time) return '';
+
+        let hours = Math.floor(time / 3600);
+        let minutes = Math.ceil((time - (hours * 3600)) / 60);
+
+        if (!hours) {
+            return minutes + 'm';
+        } else {
+            return `${hours}h ${minutes}m`;
+        }
+    }
+
     return (
         <>
         <h2>Available Routes</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Line</th>
-                <th>Stops</th>
-            </tr>
-            </thead>
+        <div className="journey-table">
+            <h3>Line</h3>
+            <h3>Journey Time</h3>
+            <h3>Stops</h3>
             {journeyOptions.map((item, index) => {
                 return (
-                    <tbody key={index}>
-                    <tr>
-                        <td>{item.line}</td>
-                        <td>{item.stops}</td>
-                    </tr>
-                    </tbody>
+                    <React.Fragment key={index}>
+                        <StationList item={item} secondsToHms={secondsToHms} index={index} />
+                    </React.Fragment>
                 );
             })}
-        </table>
+        </div>
         </>
     );
 }
