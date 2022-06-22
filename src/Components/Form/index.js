@@ -9,11 +9,13 @@ const Form = ({sortedStations, setJourneyOptions, setDisplayJourneyOptions}) => 
     const [selectedEndStation, setSelectedEndStation] = useState('');
 
     const handleStartSelect = (selection) => {
-        setSelectedStartStation(selection);
+        let withoutCodeStart = selection.slice(0, selection.length - 6);
+        setSelectedStartStation(withoutCodeStart);
     }
 
     const handleEndSelect = (selection) => {
-        setSelectedEndStation(selection);
+        let withoutCodeEnd = selection.slice(0, selection.length - 6);
+        setSelectedEndStation(withoutCodeEnd);
     }
 
     const handleSubmit = (event) => {
