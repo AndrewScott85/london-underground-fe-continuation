@@ -10,6 +10,7 @@ const AvailableJourneys = ({journeyOptions}) => {
             <h3>Line</h3>
             <h3>Length</h3>
             <h3>Stops</h3>
+            <h3>Price</h3>
             {journeyOptions.map((item, index) => {
                 return (
                     <React.Fragment key={index}>

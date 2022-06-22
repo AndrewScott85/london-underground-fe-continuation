@@ -43,9 +43,12 @@ const StationList = ({item}) => {
 
     return (
         <>
-        <div className="line-img-container"><img src={displaySvg(item.line)} onClick={() => setVisible(!visible)} alt="" />{visible ? expandIcon : collapseIcon}</div>
+        <div className="line-img-container">
+            <img src={displaySvg(item.line)} onClick={() => setVisible(!visible)} alt="" />{visible ? expandIcon : collapseIcon}
+        </div>
         <p>{secondsToHms(item.time)}</p>
         <p>{item.stops}</p>
+        <p>£{(item.price / 100).toFixed(2)}</p>
             {visible && <table className="station-list-table" cellSpacing="0" cellPadding="0">
                 <thead>
                 <tr>
