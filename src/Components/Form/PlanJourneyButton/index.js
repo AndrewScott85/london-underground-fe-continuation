@@ -1,4 +1,8 @@
-const PlanJourneyButton = ({selectedStartStation, selectedEndStation}) => {
+const PlanJourneyButton = ({selectedStartStation, selectedEndStation, setDisplayJourneyOptions}) => {
+
+    const handleClick = () => {
+        setDisplayJourneyOptions(true);
+    }
 
     let disabled = '';
 
@@ -9,7 +13,7 @@ const PlanJourneyButton = ({selectedStartStation, selectedEndStation}) => {
     let isDisabled = {disabled};
 
     return (
-        <button {...isDisabled } type="submit" className="plan-journey-button">
+        <button {...isDisabled } type="submit" className="plan-journey-button" onClick={handleClick}>
             Plan Journey
         </button>
     );

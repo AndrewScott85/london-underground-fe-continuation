@@ -3,7 +3,7 @@ import EndDropdown from "./EndDropdown";
 import PlanJourneyButton from "./PlanJourneyButton";
 import {useState} from "react";
 
-const Form = ({sortedStations, setJourneyOptions}) => {
+const Form = ({sortedStations, setJourneyOptions, setDisplayJourneyOptions}) => {
 
     const [selectedStartStation, setSelectedStartStation] = useState('');
     const [selectedEndStation, setSelectedEndStation] = useState('');
@@ -38,7 +38,11 @@ const Form = ({sortedStations, setJourneyOptions}) => {
         <form onSubmit={handleSubmit} className="journey-form">
             <StartDropdown sortedStations={sortedStations} handleStartSelect={handleStartSelect} />
             <EndDropdown sortedStations={sortedStations} handleEndSelect={handleEndSelect} />
-            <PlanJourneyButton selectedStartStation={selectedStartStation} selectedEndStation={selectedEndStation} />
+            <PlanJourneyButton
+                selectedStartStation={selectedStartStation}
+                selectedEndStation={selectedEndStation}
+                setDisplayJourneyOptions={setDisplayJourneyOptions}
+            />
         </form>
     );
 }
