@@ -46,10 +46,10 @@ const StationList = ({item}) => {
         <div className="line-img-container">
             <img src={displaySvg(item.line)} onClick={() => setVisible(!visible)} alt="" />{visible ? expandIcon : collapseIcon}
         </div>
-        <p>0</p>
         <p>{secondsToHms(item.time)}</p>
         <p>{item.stops}</p>
-            {visible && <table className="station-list-table" cellSpacing="0" cellPadding="0" >
+        <p>0</p>
+            {visible && <table className="station-list-table" cellSpacing="0" cellPadding="0">
                 <thead>
                 <tr>
                     <th style={{width: "260px"}}>Station</th>
