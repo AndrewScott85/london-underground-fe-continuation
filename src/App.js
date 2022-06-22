@@ -1,8 +1,8 @@
 import './App.css';
 import Form from "./Components/Form";
+import Journeys from "./Components/Journeys";
 import Navbar from "./Components/Navbar";
 import {useEffect, useState} from "react";
-import Journeys from "./Components/Journeys";
 
 function App() {
 
@@ -33,7 +33,7 @@ function App() {
 
     useEffect(() => {
         console.log(journeyOptions);
-    },[journeyOptions])
+    }, [journeyOptions])
 
     return (
         <>
