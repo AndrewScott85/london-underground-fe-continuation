@@ -13,4 +13,4 @@ const secondsToHms = (time) => {
     }
 }
 
-export default secondsToHms;
+module.exports = secondsToHms;
