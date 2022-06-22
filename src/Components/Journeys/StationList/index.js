@@ -48,7 +48,7 @@ const StationList = ({item}) => {
         </div>
         <p>{secondsToHms(item.time)}</p>
         <p>{item.stops}</p>
-        <p>£0</p>
+        <p>£{(item.price / 100).toFixed(2)}</p>
             {visible && <table className="station-list-table" cellSpacing="0" cellPadding="0">
                 <thead>
                 <tr>
