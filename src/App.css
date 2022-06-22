@@ -40,6 +40,7 @@ select {
   border-radius: 10px;
   padding: 0.5rem;
   border-color: var(--light);
+  width: 15rem;
 }
 
 .journey-form {
@@ -48,7 +49,7 @@ select {
   margin: 1rem auto;
   padding: 1.5rem;
   background-color: #ffffff;
-  max-width: 25rem;
+  max-width: 20rem;
   border-radius: 0.5rem;
   box-shadow: 0 1px 5px #00000025;
 }
@@ -84,7 +85,7 @@ select {
   margin: 1rem auto;
   padding: 1.5rem;
   background-color: #ffffff;
-  max-width: 25rem;
+  max-width: 20rem;
   border-radius: 0.5rem;
   box-shadow: 0 1px 5px #00000025;
 }

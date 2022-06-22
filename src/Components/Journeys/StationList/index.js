@@ -53,7 +53,7 @@ const StationList = ({item}) => {
                 <thead>
                 <tr>
                     <th style={{width: "260px"}}>Station</th>
-                    <th>Time to next</th>
+                    <th>Time</th>
                 </tr>
                 </thead>
                 <tbody>
