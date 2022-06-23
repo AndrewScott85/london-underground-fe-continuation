@@ -59,23 +59,23 @@ const StationList = ({item}) => {
                 cellPadding="0"
                 inital={closed}
                 animate={open}
-            >
+                >
                 <thead>
-                <tr>
-                    <th style={{width: "260px"}}>Station</th>
-                    <th>Time</th>
-                </tr>
+                    <tr>
+                        <th style={{width: "260px"}}>Station</th>
+                        <th>Time</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {item.stations.map((station, index) => {
-                return (
-                    <tr key={index}>
-                        <td>{station.stop}</td>
-                        <td>{secondsToHms(station.timeToNext)}</td>
-                    </tr>
-                );
-            })}
-            </tbody>
+                    return (
+                        <tr key={index}>
+                            <td>{station.stop}</td>
+                            <td>{secondsToHms(station.timeToNext)}</td>
+                        </tr>
+                    );
+                })}
+                </tbody>
             </motion.table>}
         </>
     );
