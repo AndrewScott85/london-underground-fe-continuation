@@ -9,7 +9,7 @@ The front end of Tubular is an app built using React.
 ```bash
 git clone git@github.com:iO-Academy/2022-mar-london-underground-fe.git
 ```
-2. Install London undergound backend.
+2. Install and run London undergound backend.
 
    Follow the instructions at: https://github.com/iO-Academy/2022-mar-london-underground-be
 
@@ -29,7 +29,7 @@ npm start
 6. Tubular page will be available at http://localhost:3000
 
 ## Terminating the Application
-The app can be stopped from the terminal emulator by pressing Control-C in their tabs.
+The app can be stopped from the terminal emulator by pressing Control-C in its tab.
 
 # Authors
 
