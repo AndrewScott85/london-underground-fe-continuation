@@ -9,6 +9,7 @@ function App() {
     const [sortedStations, setSortedStations] = useState([]);
     const [journeyOptions, setJourneyOptions] = useState(['']);
     const [displayJourneyOptions, setDisplayJourneyOptions] = useState(false);
+    const [toggle, setToggle] = useState(false);
 
     const fetchData = async () => {
         const response = await fetch('http://localhost:3001/stations');

@@ -2,7 +2,7 @@ import StartDropdown from "./StartDropdown";
 import EndDropdown from "./EndDropdown";
 import PlanJourneyButton from "./PlanJourneyButton";
 import {useState} from "react";
-import {HiSwitchVertical} from "react-icons/hi";
+import {HiOutlineSwitchVertical} from "react-icons/hi";
 import {IconContext} from "react-icons";
 
 const Form = ({sortedStations, setJourneyOptions, setDisplayJourneyOptions}) => {
@@ -11,7 +11,7 @@ const Form = ({sortedStations, setJourneyOptions, setDisplayJourneyOptions}) => 
     const [selectedEndStation, setSelectedEndStation] = useState('');
 
     const switchButton = <IconContext.Provider value={{className: 'switch-icon'}}>
-                            <HiSwitchVertical className="switch-icon"/>
+                            <HiOutlineSwitchVertical className="switch-icon" size="18px"/>
                          </IconContext.Provider>
 
     const handleStartSelect = (selection) => {
