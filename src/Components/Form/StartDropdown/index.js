@@ -1,7 +1,7 @@
 const StartDropdown = ({sortedStations, handleStartSelect}) => {
 
     return (
-        <div className="form-input">
+        <div className="form-input-start">
             <label htmlFor="start-stations">Start</label>
             <select name="stations"
                     id="start-stations"
