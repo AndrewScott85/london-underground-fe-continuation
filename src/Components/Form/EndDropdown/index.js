@@ -1,10 +1,10 @@
 const EndDropdown = ({sortedStations, handleEndSelect}) => {
 
     return (
-        <div className="form-input">
-            <label htmlFor="start-stations">End</label>
+        <div className="form-input-end">
+            <label htmlFor="end-stations">End</label>
             <select name="stations"
-                    id="start-stations"
+                    id="end-stations"
                     onChange={(event) => handleEndSelect(event.target.value)}
                     defaultValue={'default'}
             >

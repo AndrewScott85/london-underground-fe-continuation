@@ -2,11 +2,17 @@ import StartDropdown from "./StartDropdown";
 import EndDropdown from "./EndDropdown";
 import PlanJourneyButton from "./PlanJourneyButton";
 import {useState} from "react";
+import {HiSwitchVertical} from "react-icons/hi";
+import {IconContext} from "react-icons";
 
 const Form = ({sortedStations, setJourneyOptions, setDisplayJourneyOptions}) => {
 
     const [selectedStartStation, setSelectedStartStation] = useState('');
     const [selectedEndStation, setSelectedEndStation] = useState('');
+
+    const switchButton = <IconContext.Provider value={{className: 'switch-icon'}}>
+                            <HiSwitchVertical className="switch-icon"/>
+                         </IconContext.Provider>
 
     const handleStartSelect = (selection) => {
         let withoutCodeStart = selection.slice(0, selection.length - 6);
@@ -16,6 +22,17 @@ const Form = ({sortedStations, setJourneyOptions, setDisplayJourneyOptions}) => 
     const handleEndSelect = (selection) => {
         let withoutCodeEnd = selection.slice(0, selection.length - 6);
         setSelectedEndStation(withoutCodeEnd);
+    }
+
+    const handleSwitch = () => {
+        const startDropdown = document.querySelector('#start-stations');
+        const endDropdown = document.querySelector('#end-stations');
+        const startSelected = document.querySelector('#start-stations').value;
+        const endSelected = document.querySelector('#end-stations').value;
+        startDropdown.value = endSelected;
+        endDropdown.value = startSelected;
+        setSelectedStartStation(selectedEndStation);
+        setSelectedEndStation(selectedStartStation);
     }
 
     const handleSubmit = (event) => {
@@ -39,6 +56,7 @@ const Form = ({sortedStations, setJourneyOptions, setDisplayJourneyOptions}) => 
     return (
         <form onSubmit={handleSubmit} className="journey-form">
             <StartDropdown sortedStations={sortedStations} handleStartSelect={handleStartSelect} />
+            <button onClick={handleSwitch} className="switch-button">{switchButton}</button>
             <EndDropdown sortedStations={sortedStations} handleEndSelect={handleEndSelect} />
             <PlanJourneyButton
                 selectedStartStation={selectedStartStation}
