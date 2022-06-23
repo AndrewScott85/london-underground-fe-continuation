@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {IconContext} from "react-icons";
 import {MdExpandLess, MdExpandMore} from "react-icons/md";
+import {motion} from "framer-motion";
 import secondsToHms from '../../../imports/library.js';
 import Bakerloo from './Images/bakerloo.svg';
 import Central from './Images/central.svg';
@@ -24,6 +25,9 @@ const StationList = ({item}) => {
     const expandIcon = <IconContext.Provider value={{className: 'expand-collapse'}}>
                             <MdExpandLess className="expand-collapse" size="30px" onClick={() => setVisible(!visible)} />
                        </IconContext.Provider>
+
+    const open = {opacity: 1, y: 8};
+    const closed = {opacity: 0, y: 0};
 
     const displaySvg = (line) => {
         switch (line) {
@@ -49,24 +53,30 @@ const StationList = ({item}) => {
         <p>{secondsToHms(item.time)}</p>
         <p>{item.stops}</p>
         <p>£{(item.price / 100).toFixed(2)}</p>
-            {visible && <table className="station-list-table" cellSpacing="0" cellPadding="0">
+            {visible && <motion.table
+                className="station-list-table"
+                cellSpacing="0"
+                cellPadding="0"
+                inital={closed}
+                animate={open}
+                >
                 <thead>
-                <tr>
-                    <th style={{width: "260px"}}>Station</th>
-                    <th>Time to next</th>
-                </tr>
+                    <tr>
+                        <th style={{width: "260px"}}>Station</th>
+                        <th>Time</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {item.stations.map((station, index) => {
-                return (
-                    <tr key={index}>
-                        <td>{station.stop}</td>
-                        <td>{secondsToHms(station.timeToNext)}</td>
-                    </tr>
-                );
-            })}
-            </tbody>
-        </table>}
+                    return (
+                        <tr key={index}>
+                            <td>{station.stop}</td>
+                            <td>{secondsToHms(station.timeToNext)}</td>
+                        </tr>
+                    );
+                })}
+                </tbody>
+            </motion.table>}
         </>
     );
 }
