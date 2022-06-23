@@ -13,7 +13,7 @@ git clone git@github.com:iO-Academy/2022-mar-london-underground-fe.git
 
    Follow the instructions at: https://github.com/iO-Academy/2022-mar-london-underground-be
 
-### Set Up the App
+## Set Up the App
 3. Open a terminal emulator (such as Terminal) and navigate to the directory, e.g.:
 ```bash
 cd 2022-mar-london-underground-fe
@@ -26,12 +26,12 @@ npm start
 ```
 5. Start the backend API.
 
-6.Tubular page will be available at http://localhost:3000
+6. Tubular page will be available at http://localhost:3000
 
 ## Terminating the Application
 The app can be stopped from the terminal emulator by pressing Control-C in their tabs.
 
-## Authors
+# Authors
 
 [Alec Hamilton](https://github.com/alec-hamilton)
 
