@@ -1,4 +1,4 @@
-import StationList from "../StationList";
+import StationList, {ChangeList} from "../StationList";
 import React from 'react';
 import {motion} from "framer-motion";
 
@@ -39,7 +39,7 @@ const AvailableJourneys = ({journeyOptions}) => {
     {journeyOptions[1].map((item, index) => {
         return (
             <React.Fragment key={index}>
-                <StationList item={item} index={index} />
+                <ChangeList item={item} index={index} />
             </React.Fragment>
         );
     })}

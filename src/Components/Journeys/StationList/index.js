@@ -14,6 +14,23 @@ import Piccadilly from './Images/picadilly.svg';
 import Victoria from './Images/victoria.svg';
 import WLooCity from './Images/waterloo-city.svg';
 
+
+const displaySvg = (line) => {
+    switch (line) {
+        case 'Bakerloo': return Bakerloo;
+        case 'Central': return Central;
+        case 'District': return District;
+        case 'Hammersmith and Circle': return HSmithCity;
+        case 'Jubilee': return Jubilee;
+        case 'Metropolitan': return Metropolitan;
+        case 'Northern': return Northern;
+        case 'Piccadilly': return Piccadilly;
+        case 'Victoria': return Victoria;
+        case 'Waterloo and City': return WLooCity;
+        default: return '';
+    }
+}
+
 const StationList = ({item}) => {
 
     const [visible, setVisible] = useState(false);
@@ -29,21 +46,7 @@ const StationList = ({item}) => {
     const open = {opacity: 1, y: 8};
     const closed = {opacity: 0, y: 0};
 
-    const displaySvg = (line) => {
-        switch (line) {
-            case 'Bakerloo': return Bakerloo;
-            case 'Central': return Central;
-            case 'District': return District;
-            case 'Hammersmith and Circle': return HSmithCity;
-            case 'Jubilee': return Jubilee;
-            case 'Metropolitan': return Metropolitan;
-            case 'Northern': return Northern;
-            case 'Piccadilly': return Piccadilly;
-            case 'Victoria': return Victoria;
-            case 'Waterloo and City': return WLooCity;
-            default: return '';
-        }
-    }
+
 
     return (
         <>
@@ -71,7 +74,7 @@ const StationList = ({item}) => {
                     return (
                         <tr key={index}>
                             <td>{station.stop}</td>
-                            <td>{secondsToHms(station.timeToNext)}</td>
+                            <td>{secondsToHms(station.time)}</td>
                         </tr>
                     );
                 })}
@@ -81,4 +84,81 @@ const StationList = ({item}) => {
     );
 }
 
+
+export const ChangeList = ({item}) => {
+
+    const [visible, setVisible] = useState(false);
+
+    const collapseIcon = <IconContext.Provider value={{className: 'expand-collapse'}}>
+                            <MdExpandMore className="expand-collapse" size="30px" onClick={() => setVisible(!visible)} />
+                         </IconContext.Provider>
+
+    const expandIcon = <IconContext.Provider value={{className: 'expand-collapse'}}>
+                            <MdExpandLess className="expand-collapse" size="30px" onClick={() => setVisible(!visible)} />
+                       </IconContext.Provider>
+
+    const open = {opacity: 1, y: 8};
+    const closed = {opacity: 0, y: 0};
+
+
+    return (
+        <>
+        <div className="line-img-container">
+            <img src={displaySvg(item.lines[0])} />
+            <img src={displaySvg(item.lines[1])} onClick={() => setVisible(!visible)} alt="" />{visible ? expandIcon : collapseIcon}
+        </div>
+        <p>{secondsToHms(item.time)}</p>
+        <p>{item.stops}</p>
+        <p>£{(item.price / 100).toFixed(2)}</p>
+            {visible && <motion.table
+                className="station-list-table"
+                cellSpacing="0"
+                cellPadding="0"
+                inital={closed}
+                animate={open}
+                >
+                <h3>{item.lines[0]} line - {item.firstLegStops} stops</h3>
+                <thead>
+                    <tr>
+                        <th style={{width: "260px"}}>Station</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {item.stations[0].map((station, index) => {
+                    return (
+                        <tr key={index}>
+                            <td>{station.stop}</td>
+                            <td>{secondsToHms(station.time)}</td>
+                        </tr>
+                    );
+                })}
+                </tbody>
+                <div className ="changeImageContainer">
+                    <img src={displaySvg(item.lines[0])} /><h3>line  - {item.lastLegStops} stops</h3>
+                    </div>
+                <thead>
+                    <tr>
+                        <th style={{width: "260px"}}>Station</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {item.stations[1].map((station, index) => {
+                    return (
+                        <tr key={index}>
+                            <td>{station.stop}</td>
+                            <td>{secondsToHms(station.time)}</td>
+                        </tr>
+                    );
+                })}
+                </tbody>
+            </motion.table>}
+        </>
+    );
+}
+
+
 export default StationList;
+
+
