@@ -196,7 +196,7 @@ select {
 
 .change-img-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }

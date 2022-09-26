@@ -102,8 +102,8 @@ export const ChangeList = ({item}) => {
     return (
         <>
         <div className="line-img-container">
-            <img id="change-img" src={displaySvg(item.lines[0])} />
-            <img id="change-img" src={displaySvg(item.lines[1])} onClick={() => setVisible(!visible)} alt="" />{visible ? expandIcon : collapseIcon}
+            <img id="change-img" src={displaySvg(item.lines[0])} alt={item.lines[0]}/>
+            <img id="change-img" src={displaySvg(item.lines[1])} onClick={() => setVisible(!visible)} alt={item.lines[1]} />{visible ? expandIcon : collapseIcon}
         </div>
         <p>{secondsToHms(item.time)}</p>
         <p>{item.stops}</p>
@@ -116,7 +116,7 @@ export const ChangeList = ({item}) => {
             animate={open}
             >
             <div className ="change-img-container">
-                    <img src={displaySvg(item.lines[0])} />
+                    <img src={displaySvg(item.lines[0])} alt={item.lines[0]}/>
                     <h3>{item.firstLegStops} stops</h3>
             </div>
             <table>
@@ -138,7 +138,7 @@ export const ChangeList = ({item}) => {
                 </tbody>
             </table>
             <div className ="change-img-container">
-                <img src={displaySvg(item.lines[1])} />
+                <img src={displaySvg(item.lines[1])} alt={item.lines[1]} />
                 <h3>{item.lastLegStops} stops</h3>
             </div>
             <table>    

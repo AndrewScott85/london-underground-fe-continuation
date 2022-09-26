@@ -1,13 +1,13 @@
 import StationList, {ChangeList} from "../StationList";
 import React from 'react';
-import {motion} from "framer-motion";
+// import {motion} from "framer-motion";
 
 const AvailableJourneys = ({journeyOptions}) => {
     // console.log("journeys")
     // console.log(journeyOptions[0])
 
-    const open = {opacity: 1, y: 8};
-    const closed = {opacity: 0, y: -8};
+    // const open = {opacity: 1, y: 8};
+    // const closed = {opacity: 0, y: -8};
 
     return (
         <>
