@@ -194,6 +194,18 @@ select {
   margin: 0.5rem 0;
 }
 
+.change-img-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#change-img {
+  width: 2rem;
+  height: auto;
+}
+
 table th {
   text-align: start;
   padding-bottom: 1rem;

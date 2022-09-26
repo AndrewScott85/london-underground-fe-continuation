@@ -46,8 +46,6 @@ const StationList = ({item}) => {
     const open = {opacity: 1, y: 8};
     const closed = {opacity: 0, y: 0};
 
-
-
     return (
         <>
         <div className="line-img-container">
@@ -104,20 +102,24 @@ export const ChangeList = ({item}) => {
     return (
         <>
         <div className="line-img-container">
-            <img src={displaySvg(item.lines[0])} />
-            <img src={displaySvg(item.lines[1])} onClick={() => setVisible(!visible)} alt="" />{visible ? expandIcon : collapseIcon}
+            <img id="change-img" src={displaySvg(item.lines[0])} />
+            <img id="change-img" src={displaySvg(item.lines[1])} onClick={() => setVisible(!visible)} alt="" />{visible ? expandIcon : collapseIcon}
         </div>
         <p>{secondsToHms(item.time)}</p>
         <p>{item.stops}</p>
         <p>£{(item.price / 100).toFixed(2)}</p>
-            {visible && <motion.table
-                className="station-list-table"
-                cellSpacing="0"
-                cellPadding="0"
-                inital={closed}
-                animate={open}
-                >
-                <h3>{item.lines[0]} line - {item.firstLegStops} stops</h3>
+            {visible && <motion.div 
+            className="station-list-table"
+            cellSpacing="0"
+            cellPadding="0"
+            initial={closed}
+            animate={open}
+            >
+            <div className ="change-img-container">
+                    <img src={displaySvg(item.lines[0])} />
+                    <h3>{item.firstLegStops} stops</h3>
+            </div>
+            <table>
                 <thead>
                     <tr>
                         <th style={{width: "260px"}}>Station</th>
@@ -134,9 +136,12 @@ export const ChangeList = ({item}) => {
                     );
                 })}
                 </tbody>
-                <div className ="changeImageContainer">
-                    <img src={displaySvg(item.lines[0])} /><h3>line  - {item.lastLegStops} stops</h3>
-                    </div>
+            </table>
+            <div className ="change-img-container">
+                <img src={displaySvg(item.lines[1])} />
+                <h3>{item.lastLegStops} stops</h3>
+            </div>
+            <table>    
                 <thead>
                     <tr>
                         <th style={{width: "260px"}}>Station</th>
@@ -153,7 +158,8 @@ export const ChangeList = ({item}) => {
                     );
                 })}
                 </tbody>
-            </motion.table>}
+            </table>
+            </motion.div>}
         </>
     );
 }
