@@ -7,7 +7,7 @@ const secondsToHms = (time) => {
     let minutes = Math.ceil((time - (hours * 3600)) / 60);
 
     if (!hours) {
-        return minutes + 'm';
+        return minutes + ' min';
     } else {
         return `${hours}h${minutes}`;
     }

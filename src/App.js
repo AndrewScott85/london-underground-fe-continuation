@@ -7,7 +7,7 @@ import {useEffect, useState} from "react";
 function App() {
 
     const [sortedStations, setSortedStations] = useState([]);
-    const [journeyOptions, setJourneyOptions] = useState(['']);
+    const [journeyOptions, setJourneyOptions] = useState([]);
     const [displayJourneyOptions, setDisplayJourneyOptions] = useState(false);
 
     const fetchData = async () => {
@@ -30,10 +30,6 @@ function App() {
                 })
         }, []
     );
-
-    useEffect(() => {
-        console.log(journeyOptions);
-    }, [journeyOptions])
 
     return (
         <>
