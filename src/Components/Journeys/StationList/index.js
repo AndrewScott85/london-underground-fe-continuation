@@ -58,8 +58,6 @@ const StationList = ({item}) => {
         <p>£{(item.price / 100).toFixed(2)}</p>
             {visible && <motion.table
                 className="station-list-table"
-                cellSpacing="0"
-                cellPadding="0"
                 inital={closed}
                 animate={open}
                 >
@@ -114,26 +112,28 @@ export const ChangeList = ({item}) => {
         <>
         <div className="line-img-container">
             <img id="change-img" src={displaySvg(item.lines[0])} alt={item.lines[0]}/>
-            <img id="change-img" src={displaySvg(item.lines[1])} onClick={() => setVisible(!visible)} alt={item.lines[1]} />{visible ? expandIcon : collapseIcon}
+            <img id="change-img" src={displaySvg(item.lines[1])} onClick={() => setVisible(!visible)} alt={item.lines[1]}/>
+            {visible ? expandIcon : collapseIcon}
         </div>
         <p>{secondsToHms(item.time)}</p>
         <p>{item.stops}</p>
         <p>£{(item.price / 100).toFixed(2)}</p>
             {visible && <motion.div 
             className="station-list-table"
-            cellSpacing="0"
-            cellPadding="0"
+            // cellSpacing="0"
+            // cellPadding="0"
             initial={closed}
             animate={open}
             >
             <div className ="change-img-container">
                     <img src={displaySvg(item.lines[0])} alt={item.lines[0]}/>
                     <h3>{item.firstLegStops} stops</h3>
+                    <h3>{secondsToHms(item.firstLegTime)}</h3>
             </div>
             <table>
                 <thead>
                     <tr>
-                        <th style={{width: "260px"}}>Station</th>
+                        <th style={{width: "240px"}}>Station</th>
                         <th>Time</th>
                     </tr>
                 </thead>
@@ -160,6 +160,7 @@ export const ChangeList = ({item}) => {
             <div className ="change-img-container">
                 <img src={displaySvg(item.lines[1])} alt={item.lines[1]} />
                 <h3>{item.lastLegStops} stops</h3>
+                <h3>{secondsToHms(item.lastLegTime)}</h3>
             </div>
             <table>    
                 <thead>

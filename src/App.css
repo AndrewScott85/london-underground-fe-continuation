@@ -189,14 +189,14 @@ select {
 
 .line-img-container {
   display: flex;
-  column-gap: 1rem;
+  column-gap: 0.5rem;
   align-items: center;
   margin: 0.5rem 0;
 }
 
 .change-img-container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr 0.5fr;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
