@@ -31,11 +31,6 @@ function App() {
         }, []
     );
 
-    useEffect(() => {
-        console.log("journey Options")
-        console.log(journeyOptions);
-    }, [journeyOptions])
-
     return (
         <>
         <Navbar />

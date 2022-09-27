@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {IconContext} from "react-icons";
 import {MdExpandLess, MdExpandMore} from "react-icons/md";
 import {motion} from "framer-motion";
+// import FlatList from "flatlist-react";
 import secondsToHms from '../../../imports/library.js';
 import Bakerloo from './Images/bakerloo.svg';
 import Central from './Images/central.svg';
@@ -30,6 +31,7 @@ const displaySvg = (line) => {
         default: return '';
     }
 }
+
 
 const StationList = ({item}) => {
 
@@ -70,10 +72,19 @@ const StationList = ({item}) => {
                 <tbody>
                 {item.stations.map((station, index) => {
                     return (
-                        <tr key={index}>
-                            <td>{station.stop}</td>
+                        <React.Fragment key={index}>
+                            <tr>
+                                <td>{station.stop}</td>
+                            </tr>
+                            <tr>
+                            {index === item.stations.length -1 ? <></> :
+                            <>
+                            <td>|</td>
                             <td>{secondsToHms(station.time)}</td>
-                        </tr>
+                            </>
+                            }
+                            </tr>
+                       </React.Fragment>
                     );
                 })}
                 </tbody>
@@ -129,10 +140,19 @@ export const ChangeList = ({item}) => {
                 <tbody>
                 {item.stations[0].map((station, index) => {
                     return (
-                        <tr key={index}>
-                            <td>{station.stop}</td>
+                        <React.Fragment key={index}>
+                            <tr>
+                                <td>{station.stop}</td>
+                            </tr>
+                            <tr>
+                            {index === item.stations[0].length -1 ? <></> :
+                            <>
+                            <td>|</td>
                             <td>{secondsToHms(station.time)}</td>
-                        </tr>
+                            </>
+                            }
+                            </tr>
+                       </React.Fragment>
                     );
                 })}
                 </tbody>
@@ -151,10 +171,19 @@ export const ChangeList = ({item}) => {
                 <tbody>
                 {item.stations[1].map((station, index) => {
                     return (
-                        <tr key={index}>
-                            <td>{station.stop}</td>
+                        <React.Fragment key={index}>
+                            <tr>
+                                <td>{station.stop}</td>
+                            </tr>
+                            <tr>
+                            {index === item.stations[1].length -1 ? <></> :
+                            <>
+                            <td>|</td>
                             <td>{secondsToHms(station.time)}</td>
-                        </tr>
+                            </>
+                            }
+                            </tr>
+                       </React.Fragment>
                     );
                 })}
                 </tbody>
