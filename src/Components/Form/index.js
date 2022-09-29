@@ -38,7 +38,7 @@ const Form = ({sortedStations, setJourneyOptions, setDisplayJourneyOptions}) => 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const url = 'https://london-underground-be.herokuapp.com/journeys'
+        const url = 'http://localhost:3001/journeys'
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
