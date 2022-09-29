@@ -11,7 +11,7 @@ function App() {
     const [displayJourneyOptions, setDisplayJourneyOptions] = useState(false);
 
     const fetchData = async () => {
-        const response = await fetch('http://localhost:3001/stations');
+        const response = await fetch('https://london-underground-be.herokuapp.com/');
 
         if (!response.ok) {
             throw new Error('Data could not be fetched.');

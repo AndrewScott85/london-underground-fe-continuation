@@ -3,7 +3,7 @@ import React from 'react';
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 const AvailableJourneys = ({journeyOptions}) => {
-
+console.log(journeyOptions)
     return (
         <>
             <h2>Available Routes</h2>

@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {IconContext} from "react-icons";
 import {MdExpandLess, MdExpandMore} from "react-icons/md";
 import {motion} from "framer-motion";
-// import FlatList from "flatlist-react";
 import secondsToHms from '../../../imports/library.js';
 import Bakerloo from './Images/bakerloo.svg';
 import Central from './Images/central.svg';
@@ -120,8 +119,6 @@ export const ChangeList = ({item}) => {
         <p>£{(item.price / 100).toFixed(2)}</p>
             {visible && <motion.div 
             className="station-list-table"
-            // cellSpacing="0"
-            // cellPadding="0"
             initial={closed}
             animate={open}
             >
