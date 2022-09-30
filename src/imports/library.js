@@ -8,8 +8,10 @@ const secondsToHms = (time) => {
 
     if (!hours) {
         return minutes + ' min';
-    } else {
+    } else if (minutes > 9) {
         return `${hours}h${minutes}`;
+    } else {
+        return `${hours}h0${minutes}`;
     }
 }
 
