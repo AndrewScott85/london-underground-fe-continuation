@@ -2,7 +2,7 @@
 An app for planning journeys on the London underground.
 
 ## Description
-The front end of Tubular is an app built using React.
+The front end of Tubular is an app built using React. This is a continuation of an earlier group project which can be found at https://github.com/iO-Academy/2022-mar-london-underground-fe. I've modified it to allow display of journeys where a change is necessary, along with some minor stylistic tweaks.
 
 ## Getting Started
 1. Clone this repo:
@@ -31,10 +31,3 @@ npm start
 ## Terminating the Application
 The app can be stopped from the terminal emulator by pressing Control-C in its tab.
 
-# Authors
-
-[Alec Hamilton](https://github.com/alec-hamilton)
-
-[Andrew Scott](https://github.com/AndrewScott85)
-
-[Gediminas Melinauskas](https://github.com/Gantthebant)
