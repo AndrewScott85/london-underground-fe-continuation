@@ -7,7 +7,7 @@ The front end of Tubular is an app built using React. This is a continuation of 
 ## Getting Started
 1. Clone this repo:
 ```bash
-git clone git@github.com:iO-Academy/2022-mar-london-underground-fe.git
+git clone git@github.com:AndrewScott85/london-underground-fe-continuation.git
 ```
 2. Install and run London undergound backend.
 
