@@ -11,7 +11,7 @@ git clone git@github.com:iO-Academy/2022-mar-london-underground-fe.git
 ```
 2. Install and run London undergound backend.
 
-   Follow the instructions at: https://github.com/iO-Academy/2022-mar-london-underground-be
+   Follow the instructions at: [https://github.com/iO-Academy/2022-mar-london-underground-be](https://github.com/AndrewScott85/london-underground-be-continuation)
 
 ## Set Up the App
 3. Open a terminal emulator (such as Terminal) and navigate to the directory, e.g.:
