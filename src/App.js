@@ -2,44 +2,63 @@ import './App.css';
 import Form from "./Components/Form";
 import Journeys from "./Components/Journeys";
 import Navbar from "./Components/Navbar";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 function App() {
 
     const [sortedStations, setSortedStations] = useState([]);
     const [journeyOptions, setJourneyOptions] = useState([]);
     const [displayJourneyOptions, setDisplayJourneyOptions] = useState(false);
+    const [isLoading, setIsLoading] = useState(true); // Add loading state
+    const [error, setError] = useState(null);
 
     const fetchData = async () => {
-        const response = await fetch('http://localhost:3001/stations');
+        try {
+            const response = await fetch('https://london-underground-be.herokuapp.com/stations');
 
-        if (!response.ok) {
-            throw new Error('Data could not be fetched.');
+            if (!response.ok) {
+                throw new Error('Data could not be fetched.');
+            }
+
+            const tubeData = await response.json();
+            setSortedStations(tubeData);
+        } catch (e) {
+            console.error('Error fetching data:', e); // Log for debugging purposes
+            setError(e.message); // Set error message state
+        } finally {
+            setIsLoading(false); // Set loading to false when done fetching
         }
-
-        return await response.json();
-    }
+    };
 
     useEffect(() => {
-            fetchData()
-                .then((tubeData) => {
-                    setSortedStations(tubeData);
-                })
-                .catch((e) => {
-                    console.log(e.message);
-                })
-        }, []
-    );
+        fetchData();
+    }, []);
+
+    let content;
+
+    if (isLoading) {
+        content = <p className='loading_message'>Loading. Please Wait...</p>;
+      } else if (error) {
+        content = <p className='error_message'>Error fetching data: {error}</p>;
+      } else {
+        content = (
+          <>
+            <Form
+              sortedStations={sortedStations}
+              setJourneyOptions={setJourneyOptions}
+              setDisplayJourneyOptions={setDisplayJourneyOptions}
+            />
+            {displayJourneyOptions && <Journeys journeyOptions={journeyOptions} />}
+          </>
+        );
+      }
+    
 
     return (
         <>
-        <Navbar />
-        <Form sortedStations={sortedStations}
-              setJourneyOptions={setJourneyOptions}
-              setDisplayJourneyOptions={setDisplayJourneyOptions}
-        />
-              {displayJourneyOptions && <Journeys journeyOptions={journeyOptions} />}
-        </>
+            <Navbar />
+            {content}
+                     </>
     );
 }
 
