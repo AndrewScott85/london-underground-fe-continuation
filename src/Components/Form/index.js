@@ -38,7 +38,7 @@ const Form = ({sortedStations, setJourneyOptions, setDisplayJourneyOptions}) => 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const url = 'https://tubular-be-35fd8a953e6c.herokuapp.com//journeys'
+        const url = 'https://tubular-be-35fd8a953e6c.herokuapp.com/journeys'
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
