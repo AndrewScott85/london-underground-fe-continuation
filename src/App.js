@@ -14,7 +14,7 @@ function App() {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('https://london-underground-be.herokuapp.com/stations');
+            const response = await fetch('https://tubular-be-35fd8a953e6c.herokuapp.com/stations');
 
             if (!response.ok) {
                 throw new Error('Data could not be fetched.');
